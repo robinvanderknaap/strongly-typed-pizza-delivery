@@ -5,7 +5,7 @@
 <h1 align="center">Strongly Typed Pizza Delivery</h1>
 
 <p align="center">
-  <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/github/license/robinvanderknaap/strongly-typed-pizza-delivery" alt="License" /></a>
+  <a href="https://github.com/robinvanderknaap/strongly-typed-pizza-delivery?tab=MIT-1-ov-file#readme" target="_blank"><img src="https://img.shields.io/github/license/robinvanderknaap/strongly-typed-pizza-delivery" alt="License" /></a>
   <a href="https://twitter.com/robinvdknaap" target="_blank"><img src="https://img.shields.io/twitter/follow/robinvdknaap.svg?style=social&label=Follow"></a>
 </p>
 

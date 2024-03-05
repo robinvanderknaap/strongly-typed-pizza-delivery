@@ -18,6 +18,16 @@
       "compilerOptions": {
         "tsConfigPath": "apps/rest-api/tsconfig.app.json"
       }
+    },
+    "features": {
+      "type": "library",
+      "root": "features",
+      "sourceRoot": "features"
+    },
+    "infrastructure": {
+      "type": "library",
+      "root": "infrastructure",
+      "sourceRoot": "infrastructure"
     }
   }
 }
