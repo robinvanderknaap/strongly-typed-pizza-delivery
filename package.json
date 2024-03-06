@@ -65,12 +65,14 @@
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "collectCoverageFrom": [
-      "**/*.(t|j)s"
+      "**/*.(t|j)s",
+      "!**/coverage/**",
+      "!**/dist/**"
     ],
     "coverageDirectory": "./coverage",
     "testEnvironment": "node",
     "roots": [
-      "<rootDir>/apps/"
+      "<rootDir>/"
     ],
     "moduleNameMapper": {
       "@features/(.*)": "<rootDir>/features/$1",
