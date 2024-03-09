@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  postgres:
+    image: postgres:16.1
+    ports:
+      - '32700:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: strongly-typed-pizza-delivery
+    networks:
+      - strongly-typed-pizza-delivery-network
+networks:
+  strongly-typed-pizza-delivery-network:
