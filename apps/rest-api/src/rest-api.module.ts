@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigType } from '@nestjs/config';
 import restApiConfig from './config/rest-api.config';
 import restApiConfigSchema from './config/rest-api.config.schema';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ProductsModule } from '@features/products/products.module';
 
 @Module({
   imports: [
@@ -10,6 +12,11 @@ import restApiConfigSchema from './config/rest-api.config.schema';
       isGlobal: true,
       validationSchema: restApiConfigSchema,
     }),
+    TypeOrmModule.forRootAsync({
+      useFactory: (config: ConfigType<typeof restApiConfig>) => config.typeOrm,
+      inject: [restApiConfig.KEY],
+    }),
+    ProductsModule,
   ],
   controllers: [],
   providers: [],

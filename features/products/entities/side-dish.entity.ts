@@ -1,5 +1,7 @@
+import { ChildEntity } from 'typeorm';
 import { Product } from './product.entity';
 
+@ChildEntity('side-dish')
 export class SideDish extends Product {
   private constructor() {
     super();
