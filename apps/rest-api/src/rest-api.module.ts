@@ -4,6 +4,7 @@ import restApiConfig from './config/rest-api.config';
 import restApiConfigSchema from './config/rest-api.config.schema';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductsModule } from '@features/products/products.module';
+import { KnexModule } from 'nest-knexjs';
 
 @Module({
   imports: [
@@ -16,9 +17,11 @@ import { ProductsModule } from '@features/products/products.module';
       useFactory: (config: ConfigType<typeof restApiConfig>) => config.typeOrm,
       inject: [restApiConfig.KEY],
     }),
+    KnexModule.forRootAsync({
+      useFactory: (config: ConfigType<typeof restApiConfig>) => config.knex,
+      inject: [restApiConfig.KEY],
+    }),
     ProductsModule,
   ],
-  controllers: [],
-  providers: [],
 })
 export class RestApiModule {}
