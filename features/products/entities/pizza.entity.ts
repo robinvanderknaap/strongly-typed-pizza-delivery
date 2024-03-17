@@ -5,7 +5,7 @@ import { ChildEntity, Column } from 'typeorm';
 
 @ChildEntity('pizza')
 export class Pizza extends Product {
-  @Column({ name: 'topings', type: 'jsonb' })
+  @Column({ name: 'toppings', type: 'jsonb' })
   private _toppings: Array<Topping> = [];
 
   // We don't want to allow the creation of a pizza without calling the create method

@@ -1,4 +1,4 @@
-import { QueryHandler } from '@nestjs/cqrs';
+import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { InjectConnection } from 'nest-knexjs';
 import { Knex } from 'knex';
 
@@ -31,10 +31,13 @@ export class MenuQueryResult {
 }
 
 @QueryHandler(MenuQuery)
-export class MenuQueryHandler {
+export class MenuQueryHandler
+  implements IQueryHandler<MenuQuery, MenuQueryResult>
+{
   constructor(@InjectConnection() private readonly knex: Knex) {}
 
-  public async handle(menuQuery: MenuQuery): Promise<MenuQueryResult> {
+  public async execute(menuQuery: MenuQuery): Promise<MenuQueryResult> {
+    console.log('start');
     const query = this.knex('products');
 
     query.select('id', 'type', 'name', 'description', 'price', 'toppings');
